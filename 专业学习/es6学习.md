@@ -353,7 +353,39 @@ show.band(1)() #调用时候
 
 #### 类
 
+- 通过类找到原型 Array.prototype
+
+![image-20210323141136686](https://raw.githubusercontent.com/zbsilent/imag/main/rootimage-20210323141136686.png)
+
+- typeof  'asdsda'
+
+  - [1,2,3].constructor => function Array( )	{	[native code]	}
+
+  ![image-20210323141226630](https://raw.githubusercontent.com/zbsilent/imag/main/rootimage-20210323141226630.png)
+
+
+
+- ![image-20210323141530612](https://raw.githubusercontent.com/zbsilent/imag/main/rootimage-20210323141530612.png)
+
+
+
+- ![image-20210323141822756](https://raw.githubusercontent.com/zbsilent/imag/main/rootimage-20210323141822756.png)
+
+
+
+- call/bind所有方法都通用
+
 #### 原型
 
+- prototype  
+  - 人 - 手 
+  - String - substring/indexof
+  - function - call/bind
+  - array - concat join
+
 #### 原型链
+
+- 
+
+​	
 
