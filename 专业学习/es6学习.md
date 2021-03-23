@@ -238,9 +238,122 @@ json = {
 > 1998年 es3 火狐不支持 其他支持
 >
 > 2007年 es4 激进 无法支持
+>
+> 2008年 es3.1 退化版 html5
+>
+> 2009年 es5草案
+>
+> 2010年 es5通过
+>
+> 2011年 es6草案
+>
+> 2013年 es6通过
+>
+> 2014年                 chrome30% html 全面支持
+>
+> 2015年 es6          chrome 60%  火狐30%
+>
+> 2016年 es6         chrome 60% + 
+>
+> node.js
+
+es6 $\rightarrow$ es2015 $\longrightarrow$ecma
 
 ```js
 {/*封装jqery*/} ECMAscipt->ecma/es
 测试
 ```
+
+> 块级作用域
+
+```html
+<script type='text/javascript'>
+  {/*
+  	var i = 0
+  */}
+  {
+    let allInput = document.getElementsByTarName('input')；
+    for(let i = 0;i<allIput;i++){
+      allIput[i].onclick = function{
+         console.log(i);
+      }
+    }
+  }
+</script>
+```
+
+> 结构赋值 前后结构一致即可
+
+```js
+<script type='text/javascript'>
+	let [a,b,c] = [10,20,30]
+	console.log(a,b,c)
+	let [a,[b,d],c] = [10,[20,21],30]
+</script>
+```
+
+> Json {key对应key}
+
+```js
+var json ={'a':20,'b':30}
+
+let {a,b} = json;
+
+
+
+```
+
+> 传参
+
+```js
+function show (x=[30,50,10]){
+  console.log(a)
+  var b = a[0];
+  # let [b,c,d,e] = a
+};
+show([20,21])
+```
+
+```js
+var data = {
+  'ok':1,
+  'data':{
+     
+  },
+  'mis':'请求成功'
+}
+if(data.ok == 1){
+  
+}
+let (ok,data,mis) = data
+```
+
+#### bind
+
+>  <font color=red size=4 face="Monaco" >任何函数都可以用call调用自己 call的第一个参数就是函数的`this`,第二个参数是函数的`形参`</font>
+
+```js
+function show(){
+  console.log(this) > window对象
+}
+show.call(1)  > 1 对象本身
+show.call(1,2) > 2
+
+alert.call(whindow,1) > 1
+setTimeOut.call(window,()=>{
+  alert.call(window,1)
+},1000);
+show.bind(1) #函数本身 没有进行调用 
+show.band(1)() #调用时候
+```
+
+> <font color=red size=4 face="Monaco" >任何函数都可以用call调用自己 call的第一个参数就是函数的`this`,第二个参数是函数的`形参`,正常不会会自己调用</font>
+
+### 面向对象
+
+#### 类
+
+#### 原型
+
+#### 原型链
 
