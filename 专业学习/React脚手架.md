@@ -1,0 +1,99 @@
+# React脚手架
+
+[<img src="https://raw.githubusercontent.com/zbsilent/imag/main/rootgithubb.svg" alt="github" style="zoom:10%;" />![](https://img.shields.io/badge/React-zbsilent-brightgreen)](https://github.com/zbsilent)
+
+
+
+----
+
+
+
+
+
+###### 安装脚手架
+
+```bash
+npm install -g create-react-app
+```
+
+###### 安装完成效果
+
+![image-20210320153134112](https://raw.githubusercontent.com/zbsilent/imag/main/rootimage-20210320153134112.png)
+
+###### 验证版本
+
+```bash
+create-react-app --version
+4.0.3
+```
+
+###### 如何使用
+
+```bash
+create-react-app myReact
+```
+
+
+
+######
+
+==public==  $\rightarrow$ ==index.html== $\rightarrow$ root html
+
+Src - app.js  $\leftarrow$ 所有组件 可以丢里面
+
+app.js 汇总组件 $\rightarrow$ index.js渲染  $\rightarrow$  indexhtml
+
+
+
+----
+
+###### 
+
+```react
+ReactDOM.render(
+	<React.StrictMode>
+		<App />
+	</React.StrictMode>,
+	document.getElementById("root")
+)
+```
+
+
+
+
+
+> **StrictMode** 是一个用以标记出应用中潜在问题的工具。就像 **Fragment** ，**StrictMode** 不会渲染任何真实的UI。它为其后代元素触发额外的检查和警告。
+
+
+
+使用`StrictMode`的优点：
+
+- 识别不安全的生命周期组件
+- 有关旧式字符串ref用法的警告
+- 关于使用废弃的 findDOMNode 方法的警告
+- 检测意外的副作用
+- 检测过时的 context API
+
+
+
+
+
+###### 举个例子
+
+举个栗子🌰，使用 <font color=red size=4 face="Monaco">`React`</font>做一个图片展示
+
+```html
+<div>
+	<ul>
+		<li img src=''></li>
+	</ul>
+	<ol>
+		
+	</ol>
+</div>
+```
+
+
+
+##### React脚手架搭建不运行 请使用 npm cache clean --force  清除缓存
+
