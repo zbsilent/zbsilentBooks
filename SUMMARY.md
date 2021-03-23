@@ -7,6 +7,7 @@
   * [Atom](gong-ju-xue-xi/atom.md)
   * [Md](gong-ju-xue-xi/md.md)
   * [Git](gong-ju-xue-xi/github.md)
+  * [GitBook](工具学习/gitbook.md)
 * [专业学习](zhuan-ye-xue-xi/README.md)
   * [React](zhuan-ye-xue-xi/react.md)
 * [工作文件](gong-zuo-wen-jian/README.md)
