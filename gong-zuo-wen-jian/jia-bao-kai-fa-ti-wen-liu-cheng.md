@@ -1,48 +1,44 @@
-# 开发提问流程
+# 嘉宝客开服务工作流程
 
+## 浏览器登录以下地址使用邮箱注册账号
 
-
-#### 浏览器登录以下地址使用邮箱注册账号
-
-```react
+```text
 https://github.com
 ```
 
-#### 通知管理员分配权限
+## 通知管理员分配权限
 
-#### 登陆以下地址
+## 登陆以下地址
 
-```js
+```javascript
 https://github.com/yonyou-sc-dev/garbo-nccloud-dev/issues
 ```
 
-#### 具体操作步骤
+## 具体操作步骤
 
 ![](https://raw.githubusercontent.com/zbsilent/imag/main/root20210317104438.png)
 
-- 如上图 登陆project(翻译：专案)
-
-  - 进入嘉宝客开运维
-
-  
+* 如上图 登陆project\(翻译：专案\)
+  * 进入嘉宝客开运维
 
 ![image-20210317104818364](https://raw.githubusercontent.com/zbsilent/imag/main/rootimage-20210317104818364.png)
 
-- 看板页Needs triage界面录入问题点击add 
+* 看板页Needs triage界面录入问题点击add 
 
 ![image-20210317105521135](https://raw.githubusercontent.com/zbsilent/imag/main/rootimage-20210317105521135.png)
 
-- 如上图Covert to issue
+* 如上图Covert to issue
 
 ![image-20210317110443433](https://raw.githubusercontent.com/zbsilent/imag/main/rootimage-20210317110443433.png)
 
-- 弹出页面后直接在body种进行具体描述 可使用md语法
-- 然后点击 按钮提交 结果如下图
+* 弹出页面后直接在body种进行具体描述 可使用md语法
+* 然后点击 按钮提交 结果如下图
 
 ![image-20210317110702299](https://raw.githubusercontent.com/zbsilent/imag/main/rootimage-20210317110702299.png)
 
-#### 开发人员利用工具拉取任务列表 opentasks即可
+## 开发人员利用工具拉取任务列表 opentasks即可
 
 ![image-20210317110808107](https://raw.githubusercontent.com/zbsilent/imag/main/rootimage-20210317110808107.png)
 
-#### 完成问题解决开发后请close tasks即可完成任务关闭
+## 完成问题解决开发后请close tasks即可完成任务关闭
+

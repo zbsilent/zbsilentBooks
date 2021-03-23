@@ -1,30 +1,19 @@
 # Table of contents
 
-- [首页](https://github.com/zbsilent/zbsilentBooks/blob/master/README.md)
-- [ES6](https://github.com/zbsilent/zbsilentBooks/blob/master/es6.md)
-
-## 其他学习
-
-- [其他学习文档](https://github.com/zbsilent/zbsilentBooks/blob/master/ce-shi-group/qi-ta-xue-xi.md)
-
-# Summary
-
-* [写在最前面](README.md)
-* [工具学习](part1/README.md)
-  * [Mac](工具学习/Mac.md)
-  * [Atom](工具学习/atom.md)
-  * [Md](工具学习/md.md)
-  * [Git](工具学习/github.md)
-* [专业学习](part1/README.md)
-  * [React](专业学习/React.md)
-* [工作文件](part3/README.md)
-  * [嘉宝客开服务工作流程](工作文件/嘉宝开发提问流程.md)
-  * [React学习](part1/3.md)
-  * [Theia搭建](part1/theia.md)
-* [其他文案](part4/README.md)
-  - [待添加...]()
-
----
-
-- [Last part without title](part3/title.md) 
+* [Introduction](README.md)
+* [写在最前面](readme.md)
+* [工具学习](gong-ju-xue-xi/README.md)
+  * [Mac](gong-ju-xue-xi/mac.md)
+  * [Atom](gong-ju-xue-xi/atom.md)
+  * [Md](gong-ju-xue-xi/md.md)
+  * [Git](gong-ju-xue-xi/github.md)
+* [专业学习](zhuan-ye-xue-xi/README.md)
+  * [React](zhuan-ye-xue-xi/react.md)
+* [工作文件](gong-zuo-wen-jian/README.md)
+  * [嘉宝客开服务工作流程](gong-zuo-wen-jian/jia-bao-kai-fa-ti-wen-liu-cheng.md)
+  * [React学习](gong-zuo-wen-jian/react-xue-xi.md)
+  * [Theia搭建](gong-zuo-wen-jian/theia-da-jian.md)
+* [其他文案](qi-ta-wen-an/README.md)
+  * [待添加...](qi-ta-wen-an/dai-tian-jia-....md)
+* [Last part without title](last-part-without-title.md)
 
