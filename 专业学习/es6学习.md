@@ -385,7 +385,44 @@ show.band(1)() #调用时候
 
 #### 原型链
 
-- 
+- 继承的 
 
-​	
+```js
+function show(){
+  console.log(1)
+}
+var c = show;
+> new c() >> 1
+> console.log(c)
+> console.log(c.prototype) __proto__  下的东西 就是原型链
+```
 
+
+
+- ![image-20210323152414386](https://raw.githubusercontent.com/zbsilent/imag/main/rootimage-20210323152414386.png)
+
+##### es6 class类标准概念
+
+```js
+<script type="text/javascript">
+  class a{
+    {/*构造函数*/}
+    constructor() { 
+      this.x =10; {/*私有属性*/}
+      consol.log(this.x);
+    }
+    ffff(){
+      alert('原型->其实就是方法')
+    }
+  }
+  new a();
+</script>
+```
+
+- ![image-20210323163117493](https://raw.githubusercontent.com/zbsilent/imag/main/rootimage-20210323163117493.png)
+
+
+
+
+
+- ![image-20210323163146412](https://raw.githubusercontent.com/zbsilent/imag/main/rootimage-20210323163146412.png)
