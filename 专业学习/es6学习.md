@@ -3,7 +3,7 @@
 es2015的缩写
 
 ---
-
+[<img src="https://raw.githubusercontent.com/zbsilent/imag/main/rootgithubb.svg" alt="github" style="zoom:10%;" />![](https://img.shields.io/badge/React-zbsilent-brightgreen)](https://github.com/zbsilent)
 
 
 ```jsx
