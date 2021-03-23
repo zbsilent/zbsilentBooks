@@ -426,3 +426,13 @@ var c = show;
 
 
 - ![image-20210323163146412](https://raw.githubusercontent.com/zbsilent/imag/main/rootimage-20210323163146412.png)
+
+> 支持继承 extends 
+```js
+  class a extends aparent{
+    constructor(props) {
+      //这里用父类属性必须从构造方法super过来
+      super(props); 
+    }
+  }
+```
