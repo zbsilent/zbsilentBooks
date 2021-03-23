@@ -1,12 +1,8 @@
-# Node学习
+# Node
 
-[<img src="https://raw.githubusercontent.com/zbsilent/imag/main/rootgithubb.svg" alt="github" style="zoom:10%;" />![](https://img.shields.io/badge/React-zbsilent-brightgreen)](https://github.com/zbsilent)
+[![github](https://raw.githubusercontent.com/zbsilent/imag/main/rootgithubb.svg)![](https://img.shields.io/badge/React-zbsilent-brightgreen)](https://github.com/zbsilent)
 
-
-
-
-
-```js
+```javascript
 /*app.js*/
 const express = require('express');
 const server = express();
@@ -18,7 +14,6 @@ server.use('/get',(req,res)=>{
 })
 
 server.use(express.static('./'))
-
 ```
 
 ```bash
