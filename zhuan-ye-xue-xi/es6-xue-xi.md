@@ -449,7 +449,7 @@ css({'width':'200px','heigth':'300px'})
 </html>
 ```
 
-```html
+```js
 <!DOCTYPE html>
 <html>
 <head>
@@ -457,11 +457,14 @@ css({'width':'200px','heigth':'300px'})
 </head>
 <body>
   <script type="text/javascript">
-     function show( ) {
+    -function show() {
+    +function show(n)
         // body...
-        return `abcdsd`;
+        -return `abcdsd`;
+        +return n;
       }
-      var string = `showderreturnnis ${show()}` ;
+      - var string = `showderreturnnis ${show()}` ;
+      + var string = `showderreturnnis ${show(n)}` ;
       console.log(string);
   </script>
 </body>
@@ -469,4 +472,44 @@ css({'width':'200px','heigth':'300px'})
 ```
 > $ showderreturnnis abcdsd
 
+###### 数组map深入
+
+> mpa 返回和find/findindex不同，返回一个Array
+
+```javascript
+let arr = [1,2,3]
+arr.find((x,y,z)=>{
+  console.log(x,y,z)
+})
+```
+```jsx
+ let arr = ['button', 'text', 'button'];
+      var a = arr.map((x, y, z) => {
+        var oBtn = document.createElement('input');
+        oBtn.type = x.prototype;
+        return oBtn;
+      });
+      console.log(a)
+```
+
+
+##### 标签模版
+
+```javascript
+  createNode = json =>`<div></div>` {/*相当于括号*/}
+  console.log(createNode())
+```
+
+```js
+var jsonData = {
+  topValue: ["zbsilent", "vartestt", "wagsdsd"],
+  bottomInnner: ["aaaa", "bbbb", "vvvvv"],
+};
+createNode = (json) => `<div class='outNode'>
+${json.topValue.map((v) => `<input type='button' value=${v}></input>`).join('')}
+${json.bottomInnner.map((v)=>`<div>${v}</div>`).join('')}
+</div>`;
+document.body.innerHTML = createNode(jsonData);
+console.log(createNode(jsonData));
+```
 
