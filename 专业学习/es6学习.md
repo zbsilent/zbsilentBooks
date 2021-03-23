@@ -241,6 +241,6 @@ json = {
 
 ```js
 {/*封装jqery*/} ECMAscipt->ecma/es
-
+测试
 ```
 
