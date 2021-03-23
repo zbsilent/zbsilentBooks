@@ -1,30 +1,28 @@
-# GitBook命令
+# GitBook
 
 [![](https://img.shields.io/badge/GitBook-zbsilent-brightgreen)](Https://github.com/zbsilent)
 
----
+## 查看版本
 
-###### 查看版本
-
-```shell
+```text
 $ gitbook ls-remote
 $ npm install babel-cli babel-preset-es2015
 $ cd 4.0.0-alpha.4/node_modules/gitbook-plugin-livereload
 $ npm install
 ```
 
-###### 异常解决方案
+## 异常解决方案
 
-```sh
+```bash
 $ gitbook serve --log=debug
 Error: ENOENT: no such file or directory, open '/Users/zbsilent/.gitbook/versions/4.0.0-alpha.2/node_modules/gitbook-plugin-livereload/_assets/plugin.js'
 ```
 
-```shell
+```text
 $ /Users/zbsilent/.gitbook/versions/4.0.0-alpha.2/lib/output/website/copyPluginAssets.js
 ```
 
-```js
+```javascript
 /**
  * Copy assets from a plugin
  *
@@ -53,10 +51,11 @@ function copyAssets(output, plugin) {
         confirm: false #这里true改成false
     });
 }
-
 ```
-###### 创建book.json配置文件
-```json
+
+## 创建book.json配置文件
+
+```javascript
 {
   "title" : "itcode",
   "description" : "记录自己日常学习总结",
@@ -241,7 +240,10 @@ function copyAssets(output, plugin) {
   }
 }
 ```
-###### 下载依赖
-```shell
+
+## 下载依赖
+
+```text
 gitbook install
 ```
+

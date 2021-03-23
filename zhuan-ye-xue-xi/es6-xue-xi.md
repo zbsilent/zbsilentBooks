@@ -1,10 +1,8 @@
-# es6学习
----
+# ES6
+
 es2015的缩写
 
----
 [![](https://img.shields.io/badge/GitBook-zbsilent-brightgreen)](Https://github.com/zbsilent)
-
 
 ```jsx
 {/*块状作用域 以前都是function为作用域*/}
@@ -23,21 +21,16 @@ time = 20
 for(var i =0; i< 10;i++){ 
 };
 consol.log(i)
-{/*可以讲i定义为let*/} 
+{/*可以讲i定义为let*/}
 ```
-
-
 
 ```jsx
 {/*这个是常量 不允许赋值、重复申明*/}
 const a = 10 ;
 console.log(a);
-
 ```
 
-
-
-```js
+```javascript
 {/*charcodeAt 获取ecoding 编码 多少进制的 比如2232*/}
 let a = 'asd';
 console.log(a.charCodeAt(0 ));
@@ -46,7 +39,6 @@ String.fromCharCode()
 for(let i = 0x4e00;i<0x9fa5;i++){
   19688~40865
 }
- 
 ```
 
 ```jsx
@@ -57,7 +49,7 @@ x = x => x
 var x = function(x){
   return x;
 }
- 
+
 show=()=> {}
 
 function(x){
@@ -82,8 +74,6 @@ let x = 10;
 ((x)=>{alert(x)})()
 ```
 
-
-
 ```jsx
 {/*延展参数 可以延展任何类型*/}
 
@@ -99,10 +89,7 @@ function show{x={a:5,b:5}){
 show(obj);
 show'obj'
 > 参数为obj
-              
 ```
-
-
 
 ```jsx
 /*扩展运算符 ...箭头函数没有arguments*/
@@ -140,7 +127,6 @@ let a = `<div></div>`
 doccument.write(a.repeat(5));
 
 console.log([...document.querySelectorAll('div')])
-
 ```
 
 ```jsx
@@ -156,8 +142,8 @@ console.log([...document.querySelectorAll('div')])
 <div>aaa</div>
 <div>bbb</div>
 <div>ccc</div>
-      
-      
+
+
 [...document.querySelectorAll('inpnt')].find((x,y)=>{
   x['onclick']()=>{
     [...document.querySelectorAll('div')].find(d=>{
@@ -183,8 +169,8 @@ function* show(){
 
 需要用 show.next() 使用生成器函数 函数只有1个return 
                   生成器可以不断next  不叫return 叫做yield
-                  
-                  
+
+
 function* show(){
   yield function(){
     alert(1);
@@ -204,9 +190,9 @@ document.onclick = x=>{
 }
 ```
 
-​	
+​
 
-```json
+```javascript
 json ={a:2,b:2,c:3}
 
 json ={};
@@ -224,16 +210,16 @@ json = {
    set Reno(a){
      console.log(a)
    },
-  	get Reno(){
+      get Reno(){
       console.log(2)
     }
 };
 > json.Reno = 1;# 不赋值，走get 给值走set
 ```
 
-> 1996年 es1诞生 网景浏览器 支持es1 提出了javascript支持 actioncript - >flash
+> 1996年 es1诞生 网景浏览器 支持es1 提出了javascript支持 actioncript - &gt;flash
 >
-> 1997 年 es2 ie6 支持 网景支持 浏览器大战 
+> 1997 年 es2 ie6 支持 网景支持 浏览器大战
 >
 > 1998年 es3 火狐不支持 其他支持
 >
@@ -249,27 +235,27 @@ json = {
 >
 > 2013年 es6通过
 >
-> 2014年                 chrome30% html 全面支持
+> 2014年 chrome30% html 全面支持
 >
-> 2015年 es6          chrome 60%  火狐30%
+> 2015年 es6 chrome 60% 火狐30%
 >
-> 2016年 es6         chrome 60% + 
+> 2016年 es6 chrome 60% +
 >
 > node.js
 
 es6 $\rightarrow$ es2015 $\longrightarrow$ecma
 
-```js
+```javascript
 {/*封装jqery*/} ECMAscipt->ecma/es
 测试
 ```
 
 > 块级作用域
 
-```html
+```markup
 <script type='text/javascript'>
   {/*
-  	var i = 0
+      var i = 0
   */}
   {
     let allInput = document.getElementsByTarName('input')；
@@ -284,28 +270,25 @@ es6 $\rightarrow$ es2015 $\longrightarrow$ecma
 
 > 结构赋值 前后结构一致即可
 
-```js
+```javascript
 <script type='text/javascript'>
-	let [a,b,c] = [10,20,30]
-	console.log(a,b,c)
-	let [a,[b,d],c] = [10,[20,21],30]
+    let [a,b,c] = [10,20,30]
+    console.log(a,b,c)
+    let [a,[b,d],c] = [10,[20,21],30]
 </script>
 ```
 
 > Json {key对应key}
 
-```js
+```javascript
 var json ={'a':20,'b':30}
 
 let {a,b} = json;
-
-
-
 ```
 
 > 传参
 
-```js
+```javascript
 function show (x=[30,50,10]){
   console.log(a)
   var b = a[0];
@@ -314,25 +297,25 @@ function show (x=[30,50,10]){
 show([20,21])
 ```
 
-```js
+```javascript
 var data = {
   'ok':1,
   'data':{
-     
+
   },
   'mis':'请求成功'
 }
 if(data.ok == 1){
-  
+
 }
 let (ok,data,mis) = data
 ```
 
-#### bind
+### bind
 
->  <font color=red size=4 face="Monaco" >任何函数都可以用call调用自己 call的第一个参数就是函数的`this`,第二个参数是函数的`形参`</font>
+> 任何函数都可以用call调用自己 call的第一个参数就是函数的\`this\`,第二个参数是函数的\`形参\`
 
-```js
+```javascript
 function show(){
   console.log(this) > window对象
 }
@@ -347,47 +330,39 @@ show.bind(1) #函数本身 没有进行调用
 show.band(1)() #调用时候
 ```
 
-> <font color=red size=4 face="Monaco" >任何函数都可以用call调用自己 call的第一个参数就是函数的`this`,第二个参数是函数的`形参`,正常不会会自己调用</font>
+> 任何函数都可以用call调用自己 call的第一个参数就是函数的\`this\`,第二个参数是函数的\`形参\`,正常不会会自己调用
 
-### 面向对象
+## 面向对象
 
-#### 类
+### 类
 
-- 通过类找到原型 Array.prototype
+* 通过类找到原型 Array.prototype
 
 ![image-20210323141136686](https://raw.githubusercontent.com/zbsilent/imag/main/rootimage-20210323141136686.png)
 
-- typeof  'asdsda'
+* typeof 'asdsda'
 
-  - [1,2,3].constructor => function Array( )	{	[native code]	}
+  * \[1,2,3\].constructor =&gt; function Array\( \)    {    \[native code\]    }
 
   ![image-20210323141226630](https://raw.githubusercontent.com/zbsilent/imag/main/rootimage-20210323141226630.png)
 
+* ![image-20210323141530612](https://raw.githubusercontent.com/zbsilent/imag/main/rootimage-20210323141530612.png)
+* ![image-20210323141822756](https://raw.githubusercontent.com/zbsilent/imag/main/rootimage-20210323141822756.png)
+* call/bind所有方法都通用
 
+### 原型
 
-- ![image-20210323141530612](https://raw.githubusercontent.com/zbsilent/imag/main/rootimage-20210323141530612.png)
+* prototype  
+  * 人 - 手 
+  * String - substring/indexof
+  * function - call/bind
+  * array - concat join
 
+### 原型链
 
+* 继承的 
 
-- ![image-20210323141822756](https://raw.githubusercontent.com/zbsilent/imag/main/rootimage-20210323141822756.png)
-
-
-
-- call/bind所有方法都通用
-
-#### 原型
-
-- prototype  
-  - 人 - 手 
-  - String - substring/indexof
-  - function - call/bind
-  - array - concat join
-
-#### 原型链
-
-- 继承的 
-
-```js
+```javascript
 function show(){
   console.log(1)
 }
@@ -397,13 +372,11 @@ var c = show;
 > console.log(c.prototype) __proto__  下的东西 就是原型链
 ```
 
+![image-20210323152414386](https://raw.githubusercontent.com/zbsilent/imag/main/rootimage-20210323152414386.png)
 
+#### es6 class类标准概念
 
-- ![image-20210323152414386](https://raw.githubusercontent.com/zbsilent/imag/main/rootimage-20210323152414386.png)
-
-##### es6 class类标准概念
-
-```js
+```javascript
 <script type="text/javascript">
   class a{
     {/*构造函数*/}
@@ -419,20 +392,20 @@ var c = show;
 </script>
 ```
 
-- ![image-20210323163117493](https://raw.githubusercontent.com/zbsilent/imag/main/rootimage-20210323163117493.png)
+![image-20210323163117493](https://raw.githubusercontent.com/zbsilent/imag/main/rootimage-20210323163117493.png)
 
 
 
+![image-20210323163146412](https://raw.githubusercontent.com/zbsilent/imag/main/rootimage-20210323163146412.png)
 
+> 支持继承 extends
+>
+> ```javascript
+>   class a extends aparent{
+>     constructor(props) {
+>       //这里用父类属性必须从构造方法super过来
+>       super(props); 
+>     }
+>   }
+> ```
 
-- ![image-20210323163146412](https://raw.githubusercontent.com/zbsilent/imag/main/rootimage-20210323163146412.png)
-
-> 支持继承 extends 
-```js
-  class a extends aparent{
-    constructor(props) {
-      //这里用父类属性必须从构造方法super过来
-      super(props); 
-    }
-  }
-```
