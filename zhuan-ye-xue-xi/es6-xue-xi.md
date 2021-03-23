@@ -399,16 +399,16 @@ var c = show;
 ![image-20210323163146412](https://raw.githubusercontent.com/zbsilent/imag/main/rootimage-20210323163146412.png)
 
 > 支持继承 extends
->
-> ```javascript
->   class a extends aparent{
->     constructor(props) {
->       //这里用父类属性必须从构造方法super过来
->       super(props); 
->     }
->   }
-> ```
->
+ 
+```javascript
+  class a extends aparent{
+    constructor(props) {
+      //这里用父类属性必须从构造方法super过来
+      super(props); 
+    }
+  }
+```
+ 
 > 箭头函数不改变this指向
 
 ### es6jquery
@@ -425,4 +425,48 @@ $('')
 ```javascript
 css({'width':'200px','heigth':'300px'})
 ```
+
+#### 字符串模版深入
+##### 放入函数和传参
+
+```javascript
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+<script type="text/javascript">
+  var a = 10;
+  var json = {
+    'f':'a'
+  }
+  var stirng = `abc${a}${json.f}`;
+  consol.log(string)
+</script>
+
+</body>
+</html>
+```
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <script type="text/javascript">
+     function show( ) {
+        // body...
+        return `abcdsd`;
+      }
+      var string = `showderreturnnis ${show()}` ;
+      console.log(string);
+  </script>
+</body>
+</html>
+```
+> $ showderreturnnis abcdsd
+
 
