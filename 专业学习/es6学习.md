@@ -437,3 +437,18 @@ var c = show;
   }
 ```
 > 箭头函数不改变this指向
+
+#### es6jquery
+
+jquery 
+```javascript
+$('div').addClass()
+$('')
+```
+
+
+##### css
+
+```js
+css({'width':'200px','heigth':'300px'})
+```
