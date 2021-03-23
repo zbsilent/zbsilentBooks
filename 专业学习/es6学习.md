@@ -3,7 +3,7 @@
 es2015的缩写
 
 ---
-![](https://img.shields.io/badge/React-zbsilent-brightgreen)(https://github.com/zbsilent)
+![](https://img.shields.io/badge/React-zbsilent-brightgreen)
 
 
 ```jsx
