@@ -6,9 +6,9 @@ React学习angular （google） 、react（facebook）、vue（中国）区别�
 
 ## React学习
 
-[![github](https://raw.githubusercontent.com/zbsilent/imag/main/rootgithubb.svg)![img](https://img.shields.io/badge/React-zbsilent-brightgreen)](https://github.com/zbsilent)
+[![](https://gitee.com/zbsilent/imag/raw/master/root/github.svg)![img](https://img.shields.io/badge/React-zbsilent-brightgreen)](https://github.com/zbsilent)
 
-#### angular （google） 、react（facebook）、vue（中国）
+### angular （google） 、react（facebook）、vue（中国）区别
 
 原生JS本身操作dom消耗性能
 
@@ -22,28 +22,34 @@ React学习angular （google） 、react（facebook）、vue（中国）区别�
 
 > angular
 >
-> > 1.x mac框架
-> >
-> > 2.x mvvm
->
+> 1.x mac框架
+> 
+> 2.x mvvm
+
+
+
 > react
 >
-> > 优势
-> >
-> > > * 虚拟dom
-> > > * 性能高
-> > > * 解决了一些（pc，移动端问题）
-> >
-> > 劣势
-> >
-> > > * 入门困难，学习成本高
-> > > * react本身能做的事情不多、依赖插件库比较多
+> * 优势
+>   * 虚拟dom
 >
+>   - 性能高
+>
+>   - 解决了一些（pc，移动端问题）
+>
+> * 劣势
+>
+>   * 入门困难，学习成本高
+>
+>   - react本身能做的事情不多、依赖插件库比较多
+
+
+
 > vue2.x的迭代的时候 也用到了虚拟dom
 >
 > 接受作者的思想
 
-#### 书写格式 jsx
+### 书写格式 jsx
 
 单个标签
 
@@ -86,7 +92,7 @@ var a ='hello react!';
 let b =<div>{a}</div>
 ```
 
-#### react 开发模式
+### react 开发模式
 
 1.直接引入 - 简单
 
@@ -1119,3 +1125,8 @@ ajax
 
 ![image-20210319185818217](https://raw.githubusercontent.com/zbsilent/imag/main/rootimage-20210319185818217.png)
 
+#### 函数式组件总结
+
+> 函数式组件里没有this 
+
+[代码示例](https://codesandbox.io/s/compassionate-johnson-9hpni?file=/src/index.js)

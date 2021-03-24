@@ -190,7 +190,7 @@ document.onclick = x=>{
 }
 ```
 
-​
+
 
 ```javascript
 json ={a:2,b:2,c:3}
@@ -399,7 +399,7 @@ var c = show;
 ![image-20210323163146412](https://raw.githubusercontent.com/zbsilent/imag/main/rootimage-20210323163146412.png)
 
 > 支持继承 extends
- 
+
 ```javascript
   class a extends aparent{
     constructor(props) {
@@ -408,7 +408,7 @@ var c = show;
     }
   }
 ```
- 
+
 > 箭头函数不改变this指向
 
 ### es6jquery
