@@ -23,28 +23,19 @@ React学习angular （google） 、react（facebook）、vue（中国）区别�
 > angular
 >
 > 1.x mac框架
-> 
+>
 > 2.x mvvm
-
-
-
+>
 > react
 >
 > * 优势
 >   * 虚拟dom
->
->   - 性能高
->
->   - 解决了一些（pc，移动端问题）
->
+>   * 性能高
+>   * 解决了一些（pc，移动端问题）
 > * 劣势
->
 >   * 入门困难，学习成本高
+>   * react本身能做的事情不多、依赖插件库比较多
 >
->   - react本身能做的事情不多、依赖插件库比较多
-
-
-
 > vue2.x的迭代的时候 也用到了虚拟dom
 >
 > 接受作者的思想
@@ -1127,70 +1118,62 @@ ajax
 
 #### 函数式组件总结
 
-> 函数式组件里没有this 
+> 函数式组件里没有this
 
 [代码示例](https://codesandbox.io/s/compassionate-johnson-9hpni?file=/src/index.js)
 
-
-
-
-
 #### ref回调形式
 
-```html
+```markup
 <script type='text/javascript'>
   showInfo =()=>{
-	const {input1} = this;
-	alert(input1.value)
-	}
+    const {input1} = this;
+    alert(input1.value)
+    }
   <input ref={fun => {tthi.input1 = fun}} type='text'/>
-	<button onClick={this.showInfo}>click me</button>
+    <button onClick={this.showInfo}>click me</button>
 </script>
 ```
 
 #### 回调REF的调用次数
 
-```html
+```markup
 <script type='text/javascript'>
   showInfo =()=>{
-	const {input1} = this;
-	alert(input1.value)
-	}
+    const {input1} = this;
+    alert(input1.value)
+    }
   {/*内联函数 更新过程中会被执行两次 第一次是null*/}
   <input ref={fun => {tthi.input1 = fun}} type='text'/>
-	<button onClick={this.showInfo}>click me</button>
+    <button onClick={this.showInfo}>click me</button>
 </script>
 ```
 
+​
 
-
-​    
-
-```html
+```markup
 <script type='text/javascript'>
-  
+
   saveInpt =(fun)=>{
     this.input1 = fun;
     console.log('@',fun)
   }
-  
+
   <input type='text' ref={this.saveInput}/>
 </script>
 ```
 
 #### createRef
 
-
-
-```html
+```markup
 <script type='text/javascript'>
   //返回一个容器，存储被ref标识的节点 专人专用
   myRef = React.createRef();
-  
+
   mouseOver(){
     console.logg(this.myRef.current.value);
   }
-  
+
   <input type='text' ref={myRef} onMouseOver={this.mouseOver.bind(this)}/>
   {/*这里会覆盖上面的*/}
   <button type='text' ref={myRef} onMouseOver={this.mouseOver.bind(this)}/>
@@ -1199,26 +1182,22 @@ ajax
 </script>
 ```
 
-
-
 #### 事件委托
 
 > on,,, 都是事件委托的形式去处理的 事件冒泡
 >
-> event.trarget得到发生事件的DOM元素 
+> event.trarget得到发生事件的DOM元素
 
 `清不要过度使用REF,发生事件和操作DOM为同一个元素`
 
-```js
+```javascript
 mouseOver(event){
-	console.log(this.event.target.value)
+    console.log(this.event.target.value)
 }
 <button type='text' onMouseOver={this.mouseOver.bind(this)}/>
 ```
 
-
-
-```js
+```javascript
 import { useRef, useState } from "react";
 const LoginComponents = () => {
     const [loginfo, setLoginfo] = useState({ username: "", password: "" });
@@ -1256,52 +1235,44 @@ const LoginComponents = () => {
     );
 };
 export default LoginComponents;
-
 ```
 
 `随着输入输入到state为受控组件`
 
 ```typescript
- 		 {/* 
+          {/* 
         const saveFormInfo = (param) => {
             return (event) => {
                 //这里必须使用[] 拿去变量
                 setLoginfo({ ...loginfo, [param]: event.target.value });
             };
         };
- 
+
     */}
     const saveFormInfo = (param) => (event) => {
         // console.log(event.target.value);
         setLoginfo({ ...loginfo, [param]: event.target.value });
     };
-    
+
     <input onChange={saveFormInfo('username')} tpye="password" name="password" />
-
-
 ```
-
-
 
 `注意这里用[]取值`
 
 #### 高阶函数
 
-> -  若A函数接受参数为函数，则A为高阶函数
->
-> - 若A调用的返回值依然是函数，那A为高阶函数 
-
-
+> * 若A函数接受参数为函数，则A为高阶函数
+> * 若A调用的返回值依然是函数，那A为高阶函数
 
 #### 函数柯里化
 
-> - 函数的柯里化：通过函数调用继续返回函数的方式，实现多次接收参数最后统一处理的函数编码形式。
+> * 函数的柯里化：通过函数调用继续返回函数的方式，实现多次接收参数最后统一处理的函数编码形式。
 
-```js
+```javascript
 function sum(a){
-	return(b)=>{
-		return (c)=>{
-		return a+b+c
+    return(b)=>{
+        return (c)=>{
+        return a+b+c
     }
   }
 }
@@ -1310,11 +1281,9 @@ const result = sum(1)(2)(3);
 
 #### 再探组件生命周期
 
-``![image-20210325220515149](https://raw.githubusercontent.com/zbsilent/imag/main/rootimage-20210325220515149.png)
+\`\`
 
+![image-20210325220515149](https://raw.githubusercontent.com/zbsilent/imag/main/rootimage-20210325220515149.png)
 
-
-
-
- `ComponentWillMount `$\rightarrow$`Render`$\rightarrow$`ComponentDidMount`$\Longrightarrow$`ComponentWillUpdate`$\rightarrow$`Render`$\Longrightarrow$`ComponentDidUpdate`$\Longrightarrow$`ComponentDidUnmount`
+`ComponentWillMount`$\rightarrow$`Render`$\rightarrow$`ComponentDidMount`$\Longrightarrow$`ComponentWillUpdate`$\rightarrow$`Render`$\Longrightarrow$`ComponentDidUpdate`$\Longrightarrow$`ComponentDidUnmount`
 

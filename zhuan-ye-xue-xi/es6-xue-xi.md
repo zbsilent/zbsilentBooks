@@ -190,8 +190,6 @@ document.onclick = x=>{
 }
 ```
 
-
-
 ```javascript
 json ={a:2,b:2,c:3}
 
@@ -394,8 +392,6 @@ var c = show;
 
 ![image-20210323163117493](https://raw.githubusercontent.com/zbsilent/imag/main/rootimage-20210323163117493.png)
 
-
-
 ![image-20210323163146412](https://raw.githubusercontent.com/zbsilent/imag/main/rootimage-20210323163146412.png)
 
 > 支持继承 extends
@@ -427,7 +423,8 @@ css({'width':'200px','heigth':'300px'})
 ```
 
 #### 字符串模版深入
-##### 放入函数和传参
+
+**放入函数和传参**
 
 ```javascript
 <!DOCTYPE html>
@@ -449,7 +446,7 @@ css({'width':'200px','heigth':'300px'})
 </html>
 ```
 
-```js
+```javascript
 <!DOCTYPE html>
 <html>
 <head>
@@ -470,9 +467,10 @@ css({'width':'200px','heigth':'300px'})
 </body>
 </html>
 ```
+
 > $ showderreturnnis abcdsd
 
-###### 数组map深入
+**数组map深入**
 
 > mpa 返回和find/findindex不同，返回一个Array
 
@@ -482,6 +480,7 @@ arr.find((x,y,z)=>{
   console.log(x,y,z)
 })
 ```
+
 ```jsx
  let arr = ['button', 'text', 'button'];
       var a = arr.map((x, y, z) => {
@@ -492,15 +491,14 @@ arr.find((x,y,z)=>{
       console.log(a)
 ```
 
-
-##### 标签模版
+**标签模版**
 
 ```javascript
   createNode = json =>`<div></div>` {/*相当于括号*/}
   console.log(createNode())
 ```
 
-```js
+```javascript
 var jsonData = {
   topValue: ["zbsilent", "vartestt", "wagsdsd"],
   bottomInnner: ["aaaa", "bbbb", "vvvvv"],

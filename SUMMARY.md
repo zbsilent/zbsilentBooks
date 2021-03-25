@@ -19,6 +19,6 @@
   * [嘉宝客开服务工作流程](gong-zuo-wen-jian/jia-bao-kai-fa-ti-wen-liu-cheng.md)
 * [其他文案](qi-ta-wen-an/README.md)
   * [待添加...](qi-ta-wen-an/dai-tian-jia-....md)
-  * [人工智能直播](其他文件/人工智能.md)
+  * [人工智能直播](qi-ta-wen-an/ren-gong-zhi-neng.md)
 * [Last part without title](last-part-without-title.md)
 
