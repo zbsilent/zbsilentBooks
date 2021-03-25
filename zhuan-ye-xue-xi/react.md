@@ -1294,3 +1294,20 @@ const result = sum(1)(2)(3);
 
 
 ![react生命周期(旧)](https://raw.githubusercontent.com/zbsilent/imag/main/rootreact%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F(%E6%97%A7).png)
+
+
+
+![react生命周期(新)](https://raw.githubusercontent.com/zbsilent/imag/main/rootreact%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F(%E6%96%B0).png)
+
+
+
+![react-redux模型图](https://raw.githubusercontent.com/zbsilent/imag/main/rootreact-redux%E6%A8%A1%E5%9E%8B%E5%9B%BE.png)
+
+
+
+
+
+![image-20210325225108197](https://raw.githubusercontent.com/zbsilent/imag/main/rootimage-20210325225108197.png)
+
+
+
