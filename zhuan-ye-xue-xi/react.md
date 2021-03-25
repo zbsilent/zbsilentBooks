@@ -1130,3 +1130,191 @@ ajax
 > 函数式组件里没有this 
 
 [代码示例](https://codesandbox.io/s/compassionate-johnson-9hpni?file=/src/index.js)
+
+
+
+
+
+#### ref回调形式
+
+```html
+<script type='text/javascript'>
+  showInfo =()=>{
+	const {input1} = this;
+	alert(input1.value)
+	}
+  <input ref={fun => {tthi.input1 = fun}} type='text'/>
+	<button onClick={this.showInfo}>click me</button>
+</script>
+```
+
+#### 回调REF的调用次数
+
+```html
+<script type='text/javascript'>
+  showInfo =()=>{
+	const {input1} = this;
+	alert(input1.value)
+	}
+  {/*内联函数 更新过程中会被执行两次 第一次是null*/}
+  <input ref={fun => {tthi.input1 = fun}} type='text'/>
+	<button onClick={this.showInfo}>click me</button>
+</script>
+```
+
+
+
+​    
+
+```html
+<script type='text/javascript'>
+  
+  saveInpt =(fun)=>{
+    this.input1 = fun;
+    console.log('@',fun)
+  }
+  
+  <input type='text' ref={this.saveInput}/>
+</script>
+```
+
+#### createRef
+
+
+
+```html
+<script type='text/javascript'>
+  //返回一个容器，存储被ref标识的节点 专人专用
+  myRef = React.createRef();
+  
+  mouseOver(){
+    console.logg(this.myRef.current.value);
+  }
+  
+  <input type='text' ref={myRef} onMouseOver={this.mouseOver.bind(this)}/>
+  {/*这里会覆盖上面的*/}
+  <button type='text' ref={myRef} onMouseOver={this.mouseOver.bind(this)}/>
+
+
+</script>
+```
+
+
+
+#### 事件委托
+
+> on,,, 都是事件委托的形式去处理的 事件冒泡
+>
+> event.trarget得到发生事件的DOM元素 
+
+`清不要过度使用REF,发生事件和操作DOM为同一个元素`
+
+```js
+mouseOver(event){
+	console.log(this.event.target.value)
+}
+<button type='text' onMouseOver={this.mouseOver.bind(this)}/>
+```
+
+
+
+```js
+import { useRef, useState } from "react";
+const LoginComponents = () => {
+    const [loginfo, setLoginfo] = useState({ username: "", password: "" });
+    // const myNameRef = useRef();
+    // const myPassRef = useRef();
+    const handleSubmit = (event) => {
+        console.log(event);
+        event.preventDefalut();
+        //event.preventDefalut(); //阻止表单提交
+        // console.log(myNameRef,myPassRef);
+        console.log(`你输入的用户名是：${loginfo.username},你输入的密码是：${loginfo.password}`);
+    };
+
+
+    const saveUsername = (event) => {
+        console.log(event.target.value);
+        setLoginfo({ ...loginfo, ["username"]: event.target.value });
+    };
+
+    //这里用到了动态设置useState的值的方法
+    const savePasswd = (event) => {
+        console.log(event.target.value);
+        setLoginfo({ ...loginfo, ["password"]: event.target.value });
+    };
+    return (
+        <div>
+            <form onSubmit={handleSubmit}>
+                用户名:
+                <input onChange={saveUsername} type="text" name="usernam" />
+                密码:
+                <input onChange={savePasswd} tpye="password" name="password" />
+                <button>登陆</button>
+            </form>
+        </div>
+    );
+};
+export default LoginComponents;
+
+```
+
+`随着输入输入到state为受控组件`
+
+```typescript
+ 		 {/* 
+        const saveFormInfo = (param) => {
+            return (event) => {
+                //这里必须使用[] 拿去变量
+                setLoginfo({ ...loginfo, [param]: event.target.value });
+            };
+        };
+ 
+    */}
+    const saveFormInfo = (param) => (event) => {
+        // console.log(event.target.value);
+        setLoginfo({ ...loginfo, [param]: event.target.value });
+    };
+    
+    <input onChange={saveFormInfo('username')} tpye="password" name="password" />
+
+
+```
+
+
+
+`注意这里用[]取值`
+
+#### 高阶函数
+
+> -  若A函数接受参数为函数，则A为高阶函数
+>
+> - 若A调用的返回值依然是函数，那A为高阶函数 
+
+
+
+#### 函数柯里化
+
+> - 函数的柯里化：通过函数调用继续返回函数的方式，实现多次接收参数最后统一处理的函数编码形式。
+
+```js
+function sum(a){
+	return(b)=>{
+		return (c)=>{
+		return a+b+c
+    }
+  }
+}
+const result = sum(1)(2)(3);
+```
+
+#### 再探组件生命周期
+
+``![image-20210325220515149](https://raw.githubusercontent.com/zbsilent/imag/main/rootimage-20210325220515149.png)
+
+
+
+
+
+ `ComponentWillMount `$\rightarrow$`Render`$\rightarrow$`ComponentDidMount`$\Longrightarrow$`ComponentWillUpdate`$\rightarrow$`Render`$\Longrightarrow$`ComponentDidUpdate`$\Longrightarrow$`ComponentDidUnmount`
+
