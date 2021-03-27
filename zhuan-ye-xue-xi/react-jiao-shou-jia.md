@@ -65,5 +65,18 @@ ReactDOM.render(
 </div>
 ```
 
-## React脚手架搭建不运行 请使用 npm cache clean --force  清除缓存
+`React脚手架搭建不运行 请使用 npm cache clean --force  清除缓存`
+
+
+
+### 样式模块化
+
+
+
+> css 文件 index.module.css 可以使用以下方式
+>
+> ```html
+> import xxx from './index.module.css' 
+> <h2 className={hello.title}
+> ```
 
