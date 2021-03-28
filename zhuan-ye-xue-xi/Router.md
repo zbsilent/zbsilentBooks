@@ -121,53 +121,30 @@ ReactDOM.render(
 
 - 位置 ：pages
 
-- 接收参数固定：
+- 接收参数固定 
 
-  1. history: 
-
-     ​	go:f go(n)
-
-     ​	goBack:fgoBack()
-     ​	goForward: f goForward() push: f push(path, state)
-     ​	replace:f replace(path, state)
-
-  2. location:
-     	pathname: "/about"
-     	search: 11
-     	state: undefined
-
-  3. match:
-     	params:{}
-     	path: "/about"
-     	url:"/about"
 
 ```
 .
-├── App.css
-├── App.js
-├── App.test.js
-├── bootstrap.css
-├── index.css
-├── index.js
-├── logo.svg
-├── pages
-│   ├── About
-│   │   └── index.jsx
-│   └── Home
-│       └── index.jsx
-├── reportWebVitals.js
-├── setupProxy.js
-├── setupTests.js
+├── history
+│   ├── go:f go(n)
+│		│		 └── go.arguments
+│ 	├── goBack:fgoBack()
+│ 	├── goForward: f goForward()
+│ 	├── push: f push(path, state)
+│ 	├── replace:f replace(path, state)
+├── location
+│   ├── pathname: "/about"
+│   ├── search: 11
+│   ├── state: undefined
+├── match
+│   ├── params:{}
+│   ├── path: "/about"
+│   ├── url:"/about"
 └── tree.md
 ```
 
 
-
-> - history
->
-> - location 
-> - match 
-> - staticContext
 
 
 
