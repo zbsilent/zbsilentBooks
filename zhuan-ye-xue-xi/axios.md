@@ -1,4 +1,4 @@
-# Axios
+# Axios-xhr xmlHttpRequest
 
 ## 单代理
 
