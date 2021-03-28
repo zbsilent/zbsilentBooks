@@ -16,7 +16,7 @@
   * [Node](zhuan-ye-xue-xi/node.md)
   * [ES6](zhuan-ye-xue-xi/es6-xue-xi.md)
   * [Axios](zhuan-ye-xue-xi/axios.md)
-  * [Router](zhuan-ye-xue-xi/single page web applicatio(spa).md)
+  * [Router](zhuan-ye-xue-xi/Router.md)
 * [工作文件](gong-zuo-wen-jian/README.md)
   * [嘉宝客开服务工作流程](gong-zuo-wen-jian/jia-bao-kai-fa-ti-wen-liu-cheng.md)
 * [其他文案](qi-ta-wen-an/README.md)
