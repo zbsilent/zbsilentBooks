@@ -1149,8 +1149,6 @@ ajax
 </script>
 ```
 
-
-
 ```markup
 <script type='text/javascript'>
 
@@ -1287,71 +1285,45 @@ const result = sum(1)(2)(3);
 
 `ComponentWillMount`$\rightarrow$`Render`$\rightarrow$`ComponentDidMount`$\Longrightarrow$`ComponentWillUpdate`$\rightarrow$`Render`$\Longrightarrow$`ComponentDidUpdate`$\Longrightarrow$`ComponentDidUnmount`
 
-
-
 ### React 新旧生命周期
 
+!\[react生命周期\]\([https://raw.githubusercontent.com/zbsilent/imag/main/rootreact%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F\(%E6%97%A7\).png](https://raw.githubusercontent.com/zbsilent/imag/main/rootreact%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%28%E6%97%A7%29.png)\)
 
-
-![react生命周期](https://raw.githubusercontent.com/zbsilent/imag/main/rootreact%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F(%E6%97%A7).png)
-
-
-
-```html
+```markup
 * Move code with side effects to componentDidMount, and set initial state in the constructor.
 * Rename componentWillMount to UNSAFE_componentWillMount to suppress this warning in non-strict mode. In React 18.x, only the UNSAFE_ name will work. To rename all deprecated lifecycles to their new names, you can run `npx react-codemod rename-unsafe-lifecycles` in your project source folder.
-
 ```
 
-> - `componentWillMount`
-> - `componentWillReceiveProps`
-> - `componentWillUpdate`
+> * `componentWillMount`
+> * `componentWillReceiveProps`
+> * `componentWillUpdate`
 >
-> 使用过程必须增加 UNSAFE_
-
-
-
+> 使用过程必须增加 UNSAFE\_
+>
 > @17.x 删除`componentWillMount`，`componentWillReceiveProps`和`componentWillUpdate`。提出 `getDerivedStateFromProps`,`getSnapshotBeforeUpdate`
 
-
-
-![react生命周期](https://raw.githubusercontent.com/zbsilent/imag/main/rootreact%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F(%E6%96%B0).png)
-
-
+!\[react生命周期\]\([https://raw.githubusercontent.com/zbsilent/imag/main/rootreact%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F\(%E6%96%B0\).png](https://raw.githubusercontent.com/zbsilent/imag/main/rootreact%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%28%E6%96%B0%29.png)\)
 
 #### getDerivedStateFromProps
 
-
-
 `即state的值在任何时候都取决于props`
 
-```js
+```javascript
 //不应该给实例哟过 所以是静态的
 static getDerivedStateFromProps(props) {
-	console.log("----衍生");
-	console.log(props);
-	//适用于罕见用例 state的值都取决于props
-	//影响状态  并且已这个为主 且保持不变
-	//return {count:80}; 接受到props
-	//派生状态 这里只能返回状态对象
-	return props;
+    console.log("----衍生");
+    console.log(props);
+    //适用于罕见用例 state的值都取决于props
+    //影响状态  并且已这个为主 且保持不变
+    //return {count:80}; 接受到props
+    //派生状态 这里只能返回状态对象
+    return props;
 }
-
 ```
-
-
 
 ![image-20210326135317074](https://raw.githubusercontent.com/zbsilent/imag/main/rootimage-20210326135317074.png)
 
-
-
-![react-redux模型图](https://raw.githubusercontent.com/zbsilent/imag/main/rootreact-redux%E6%A8%A1%E5%9E%8B%E5%9B%BE.png)
-
-
-
-
+![react-redux&#x6A21;&#x578B;&#x56FE;](https://raw.githubusercontent.com/zbsilent/imag/main/rootreact-redux%E6%A8%A1%E5%9E%8B%E5%9B%BE.png)
 
 ![image-20210325225108197](https://raw.githubusercontent.com/zbsilent/imag/main/rootimage-20210325225108197.png)
-
-
 

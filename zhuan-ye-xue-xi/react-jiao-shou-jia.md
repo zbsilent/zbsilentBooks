@@ -2,24 +2,24 @@
 
 [![github](https://raw.githubusercontent.com/zbsilent/imag/main/rootgithubb.svg)![](https://img.shields.io/badge/React-zbsilent-brightgreen)](https://github.com/zbsilent)
 
-### 安装脚手架
+## 安装脚手架
 
 ```bash
 npm install -g create-react-app
 ```
 
-### 安装完成效果
+## 安装完成效果
 
 ![image-20210320153134112](https://raw.githubusercontent.com/zbsilent/imag/main/rootimage-20210320153134112.png)
 
-### 验证版本
+## 验证版本
 
 ```bash
 create-react-app --version
 4.0.3
 ```
 
-### 如何使用
+## 如何使用
 
 ```bash
 create-react-app myReact
@@ -50,7 +50,7 @@ ReactDOM.render(
 * 检测意外的副作用
 * 检测过时的 context API
 
-### 举个例子
+## 举个例子
 
 举个栗子🌰，使用 `React`做一个图片展示
 
@@ -65,17 +65,13 @@ ReactDOM.render(
 </div>
 ```
 
-`React脚手架搭建不运行 请使用 npm cache clean --force  清除缓存`
+`React脚手架搭建不运行 请使用 npm cache clean --force 清除缓存`
 
-
-
-### 样式模块化
-
-
+## 样式模块化
 
 > css 文件 index.module.css 可以使用以下方式
 >
-> ```html
+> ```markup
 > import xxx from './index.module.css' 
 > <h2 className={hello.title}
 > ```

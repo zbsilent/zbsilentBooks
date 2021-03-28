@@ -1,102 +1,92 @@
-# Axios-xhr xmlHttpRequest
+# Axios
 
 ## 单代理
 
-
-
 ### axis 基本用法
 
-
-
-```js
+```javascript
 Axios.get("http://localhost:5000/students").then(
-			(response) => {
-				console.log(response.data);
-			},
-			(error) => {
-				console.log(error);
-			}
-		);
+            (response) => {
+                console.log(response.data);
+            },
+            (error) => {
+                console.log(error);
+            }
+        );
 ```
 
 ### Server 设置
 
-```js
+```javascript
 const express = require('express')
 const app = express()
 
 app.use((request,response,next)=>{
-	console.log('有人请求服务器1了');
-	console.log('请求来自于',request.get('Host'));
-	console.log('请求的地址',request.url);
-	next()
+    console.log('有人请求服务器1了');
+    console.log('请求来自于',request.get('Host'));
+    console.log('请求的地址',request.url);
+    next()
 })
 
 app.get('/students',(request,response)=>{
-	const students = [
-		{id:'001',name:'tom',age:18},
-		{id:'002',name:'jerry',age:19},
-		{id:'003',name:'tony',age:120},
-	]
-	response.send(students)
+    const students = [
+        {id:'001',name:'tom',age:18},
+        {id:'002',name:'jerry',age:19},
+        {id:'003',name:'tony',age:120},
+    ]
+    response.send(students)
 })
 
 app.listen(5000,(err)=>{
-	if(!err) console.log('服务器1启动成功了,请求学生信息地址为：http://localhost:5000/students');
+    if(!err) console.log('服务器1启动成功了,请求学生信息地址为：http://localhost:5000/students');
 })
-
 ```
 
-> 使用 node  server1.js 启动服务 
+> 使用 node server1.js 启动服务
 
 ### 跨域问题 设置代理 代理端口和客户端端口一致
 
-
-
 ### 配置代理服务器
 
-> package.json  末尾 增加 `` "proxy":"http://localhost:5000"``
+> package.json 末尾 增加 `"proxy":"http://localhost:5000"`
 
-```js
+```javascript
 //这里要特别注意ip地址的坑  localhost 和 127.0.0.1不一样
-	const getInfo = () => {
-		axios.get("http://localhost:3000/students").then(
-			(response) => {
-				console.log(response.data);
-			},
-			(error) => {
-				console.log(error);
-			}
-		);
+    const getInfo = () => {
+        axios.get("http://localhost:3000/students").then(
+            (response) => {
+                console.log(response.data);
+            },
+            (error) => {
+                console.log(error);
+            }
+        );
 ```
 
 > `3000端口有的数据，则不进行转发`
 
 ## 多代理
 
+* 增加setupProxy.js
 
-
-- 增加setupProxy.js
-
-```````js
+```javascript
 const proxy = require("http-proxy-middleware");
 
 module.exports = function (app) {
-	app.use(
-		proxy("/api1",//遇到api前缀的请求触发该代理
-    	{
+    app.use(
+        proxy("/api1",//遇到api前缀的请求触发该代理
+        {
         target: "http://localhost:5000",//请求转发地址
         changeOrigin: true,//控制服务器收到的响应头中的host字段的值 
         pathRewrite: { "^/api1": "" },//重写请求路径
-		  }),
-		proxy("/api2",
+          }),
+        proxy("/api2",
      {
-			target: "http://localhost:5001",
-			changeOrigin: true,
-			pathRewrite: { "^/api2": "" },
-		})
-	);
+            target: "http://localhost:5001",
+            changeOrigin: true,
+            pathRewrite: { "^/api2": "" },
+        })
+    );
 };
-
-```````
+```
 
