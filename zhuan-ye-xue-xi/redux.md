@@ -1,8 +1,4 @@
-# Redux学习
-
-
-
-
+# Redux
 
 ## 作用
 
@@ -12,15 +8,7 @@
 >
 > 总体原则：能不用则不用
 
-
-
 ## 工作流程
 
-
-
-
-
 ![image-20210325225108197](https://raw.githubusercontent.com/zbsilent/imag/main/rootimage-20210325225108197.png)
-
-
 

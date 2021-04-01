@@ -109,9 +109,9 @@ ReactDOM.render(
 └── tree.md
 ```
 
-> <NavLink activeClassName =''>  追加样式属性
+> 追加样式属性
 >
-> 如果是activeClassName='active' 则可以不加 
+> 如果是activeClassName='active' 则可以不加
 
 ```css
 # ！important提高优先级
@@ -123,7 +123,7 @@ ReactDOM.render(
 <NavLink activeClassName ='atguigu' to='/home'>{Home}</NavLink>
 ```
 
-```js
+```javascript
 标签体属性<MyNavLink to= "/about"  a={1} b={3}>About</MyNavLink>
 得到props
 {to: "/about", a: 1, b: 3, children: "About"}
@@ -131,41 +131,31 @@ ReactDOM.render(
 
 `Switch组件，不持续向下，注册路由多个时候用`
 
-
-
 ### 解决样式丢失问题
 
+_1.0_ 取消html下的. 即取消当前文件夹下的即可
 
+_2.0_ %PUBLIC\_URL$ 绝对路径
 
-*1.0*  取消html下的. 即取消当前文件夹下的即可
+_3.0_ HashRouter搞定
 
-*2.0* %PUBLIC_URL$  绝对路径
+### 模糊匹配
 
-*3.0* HashRouter搞定
+* 给多了没那么多无所谓 要的东西一个都不能少\*
 
-###  模糊匹配 
+​ _1.0_ 路由注册时候用exact方式 就可以严格匹配了\*
 
-- 给多了没那么多无所谓 要的东西一个都不能少*
+​ _2.0_ 输入的路径必须包含【匹配的路径】 且顺序要一致\*
 
-​        *1.0* 路由注册时候用exact方式 就可以严格匹配了* 
-
-​        *2.0* 输入的路径必须包含【匹配的路径】 且顺序要一致*
-
-       ```js
+```javascript
 <NavLink activeClassName='active' className="list-group-item" to="/island/home/a/b">Home</NavLink>
-       ```
+```
 
-  
-
-### 路由注`Redirect`重定向 
-
-<Redirect to="/about" />
-
-
+### 路由注`Redirect`重定向
 
 ### 传参
 
-```js
+```javascript
 # 携带param参数，向路由组件传递 
 <Link to= {`/home/message/detail/${messageObj.id}/${messageObj.title}`}>{messageObj.title}</Link>
 # 注册路由
@@ -174,7 +164,7 @@ ReactDOM.render(
 const { id, title } = props.match.params;
 ```
 
-```js
+```javascript
 # 传递search参数
 <Link to= {`/home/message/detail/?id=${messageObj.id}&title=${messageObj.title}`}>{messageObj.title}</Link>&nbsp;&nbsp;
 # 正常申明
@@ -186,7 +176,7 @@ const {search} = props.location;
 const {id,title} = qs.parse(search).slice(1);
 ```
 
-```js
+```javascript
 # state参数
 <Link to= {{pathname:'/home/message/detail',state:{id:messageObj.id,title:messageObj.title}}}>{messageObj.title}</Link>&nbsp;&nbsp;
 # 正常申明
@@ -195,7 +185,7 @@ const {id,title} = qs.parse(search).slice(1);
 const {id,title} = props.location.state;
 ```
 
-```js
+```javascript
 # state参数
 <Link  to= {{pathname:'/home/message/detail',state:{id:messageObj.id,title:messageObj.title}}}>{messageObj.title}</Link>&nbsp;&nbsp;
 ```
