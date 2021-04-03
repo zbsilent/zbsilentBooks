@@ -1325,5 +1325,3 @@ static getDerivedStateFromProps(props) {
 
 ![react-redux&#x6A21;&#x578B;&#x56FE;](https://raw.githubusercontent.com/zbsilent/imag/main/rootreact-redux%E6%A8%A1%E5%9E%8B%E5%9B%BE.png)
 
-
-
