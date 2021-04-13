@@ -53,3 +53,11 @@ conf/tomcat-users.xml
 
 ```
 
+### 管理node
+
+```shell
+ sudo n 14.14.0
+ 
+ https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V14.md
+```
+

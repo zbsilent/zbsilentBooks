@@ -226,9 +226,9 @@ URL
 
 ![brightgreen](https://shields.io/badge/-brightgreen-brightgreen)![green](https://shields.io/badge/-green-green)![yellowgreen](https://shields.io/badge/-yellowgreen-yellowgreen)![yellow](https://shields.io/badge/-yellow-yellow)![orange](https://shields.io/badge/-orange-orange)![red](https://shields.io/badge/-red-red)![blue](https://shields.io/badge/-blue-blue)![lightgrey](https://shields.io/badge/-lightgrey-lightgrey) ![success](https://shields.io/badge/-success-success)![important](https://shields.io/badge/-important-important)![critical](https://shields.io/badge/-critical-critical)![informational](https://shields.io/badge/-informational-informational)![inactive](https://shields.io/badge/-inactive-inactive) ![blueviolet](https://shields.io/badge/-blueviolet-blueviolet)![ff69b4](https://shields.io/badge/-ff69b4-ff69b4)![9cf](https://shields.io/badge/-9cf-9cf)
 
-!\[github \(3\)\]\(/Users/zbsilent/Desktop/github%20\(3\).svg\)
 
-!\[\]\([https://gitee.com/zbsilent/imag/raw/master/root/github \(3\).svg](https://gitee.com/zbsilent/imag/raw/master/root/github%20%283%29.svg)\)
+
+
 
 |  |  |
 | :--- | :--- |
@@ -240,7 +240,15 @@ URL
 
 ### 常用按钮
 
-Ctrl/Cmd+Alt+A, C
+$$
+<kbd>Ctrl/Cmd</kbd>+<kbd>Alt</kbd>+<kbd>A</kbd>, <kbd>C</kbd>
+$$
+
+
+
+<kbd>Ctrl/Cmd</kbd>+<kbd>Alt</kbd>+<kbd>A</kbd>, <kbd>C</kbd>
+
+
 
 [跳至五级标题](md.md##常用按钮)
 
