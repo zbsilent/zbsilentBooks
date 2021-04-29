@@ -39,7 +39,7 @@ sudo pkill -f fsck
 
 ```js
 # 修改catalina.sh文件
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_281.jdk/Contents/Home
 export JRE_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home
 # 进入下面目录
 /Users/zbsilent/apache-tomcat-9.0.44/bin
