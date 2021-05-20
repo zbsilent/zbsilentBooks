@@ -28,6 +28,6 @@
   * [待添加...](qi-ta-wen-an/dai-tian-jia-....md)
   * [人工智能直播](qi-ta-wen-an/ren-gong-zhi-neng.md)
 * [深度学习](deep-learning/README.md)
-  * [初学](deep-learning/初学.md)
+  * [初学](deep-learning/dlbase.md)
 * [Last part without title](last-part-without-title.md)
 
