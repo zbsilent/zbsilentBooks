@@ -4,7 +4,6 @@
 * [写在最前面](readme-1.md)
 * [Java学习](zhuan-ye-xue-xi/README.md)
   * [SrpingBoot](zhuan-ye-xue-xi/SpringBoot.md)
-
 * [工具学习](gong-ju-xue-xi/README.md)
   * [Mac](gong-ju-xue-xi/mac.md)
   * [Atom](gong-ju-xue-xi/atom.md)
@@ -28,5 +27,7 @@
 * [其他文案](qi-ta-wen-an/README.md)
   * [待添加...](qi-ta-wen-an/dai-tian-jia-....md)
   * [人工智能直播](qi-ta-wen-an/ren-gong-zhi-neng.md)
+* [深度学习](deep-learning/README.md)
+  * [初学](deep-learning/初学.md)
 * [Last part without title](last-part-without-title.md)
 

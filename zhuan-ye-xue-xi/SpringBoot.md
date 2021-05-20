@@ -38,7 +38,7 @@
 
 
 
-> 利用 **https://start.spring.io/**快速启动
+* [Quick Start by IDEA](https://start.spring.io)
 
 
 
@@ -50,7 +50,7 @@
 
 ## 配置编写
 
-## 自动装配原理
+## Auto Configure
 
 ## 集成WEB开发：业务核心
 

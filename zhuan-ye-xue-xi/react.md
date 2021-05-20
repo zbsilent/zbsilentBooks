@@ -2,13 +2,19 @@
 
 [toc]
 
-React学习angular （google） 、react（facebook）、vue（中国）区别书写格式 jsxreact 开发模式第二课回顾组件开发显示隐藏小测试小时钟时间加减事件对象获取非本身（事件源元素）拖拽生命周期Reactreact表单和前后台数据交互tab面板 选项卡百度下拉WebPack配置react项目学习webpack组成基础配置对象导入导出React-JSX在webpack中的支持预设 .babelrc 新建这个文件配置react如何在服务器上使用生产环境 -webpack -w开发环境 webpack-dev-server
-
 ## React学习
 
 [![](https://gitee.com/zbsilent/imag/raw/master/root/github.svg)![img](https://img.shields.io/badge/React-zbsilent-brightgreen)](https://github.com/zbsilent)
 
+
+
+> React学习angular （google） 、react（facebook）、vue（中国）区别书写格式 jsxreact 开发模式第二课回顾组件开发显示隐藏小测试小时钟时间加减事件对象获取非本身（事件源元素）拖拽生命周期Reactreact表单和前后台数据交互tab面板 选项卡百度下拉WebPack配置react项目学习webpack组成基础配置对象导入导出React-JSX在webpack中的支持预设 .babelrc 新建这个文件配置react如何在服务器上使用生产环境 -webpack -w开发环境 webpack-dev-server
+
+
+
 ### angular （google） 、react（facebook）、vue（中国）区别
+
+
 
 原生JS本身操作dom消耗性能
 
@@ -18,27 +24,7 @@ React学习angular （google） 、react（facebook）、vue（中国）区别�
 
 框架 ： 本质上修改了js的思想 解决了一些终端程序上的问题
 
-#### 区别
 
-> angular
->
-> 1.x mac框架
->
-> 2.x mvvm
->
-> react
->
-> * 优势
->   * 虚拟dom
->   * 性能高
->   * 解决了一些（pc，移动端问题）
-> * 劣势
->   * 入门困难，学习成本高
->   * react本身能做的事情不多、依赖插件库比较多
->
-> vue2.x的迭代的时候 也用到了虚拟dom
->
-> 接受作者的思想
 
 ### 书写格式 jsx
 

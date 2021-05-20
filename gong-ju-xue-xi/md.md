@@ -256,3 +256,15 @@ _Reference:_ [_Action System in IntelliJ SDK Docs_](https://www.jetbrains.org/in
 
 \[file:DynamicActionGroup\]: ./src/main/java/org/intellij/sdk/action/DynamicActionGroup.java --&gt;
 
+
+
+##### 时序图画法
+
+```mermaid
+sequenceDiagram
+Alice->John: Hello John, how are you?
+
+  Note over Alice,John: A typical interaction
+```
+
+ 
