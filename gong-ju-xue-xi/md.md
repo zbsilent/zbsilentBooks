@@ -4,6 +4,10 @@
 
 ## MD语法说明
 
+<a name="ids">我是木笔啊位置</a>
+
+## [ID234](#ID234)
+
 横线
 
 效果：
@@ -41,7 +45,13 @@
 
 效果：
 
-这是普通文本
+这是普通文本[^2][^1]<sup>s</sup>
+
+
+
+```
+[^2]:HyperText Markup Language 超文本标记语言
+```
 
 文本块
 
@@ -125,11 +135,21 @@ URL
 
 ```text
 [跳至五级标题](#五级标题)
+需要跳转的地方：<a name="divtop"> 我是目标位置 </a>
+定义锚记：[跳转指定位置](#divtop)
+
+
+## 标题 {#1}
+跳转到[1](#1)
 ```
+
+跳转到[ID23423](#MD语法说明)
+
+[跳转到A哪里去](#ids)
 
 效果：
 
-[跳至五级标题](md.md#五级标题)
+[跳至五级标题](md.md#二级标题)
 
 无序列表
 
@@ -299,4 +319,7 @@ Alice->John: Hello John, how are you?
   Note over Alice,John: A typical interaction
 ```
 
- 
+----
+
+[^2]: 测试 ↩
+
