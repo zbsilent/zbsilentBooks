@@ -549,6 +549,136 @@ private Resource getIndexHtml(Resource location) {
 
 ### CRUD
 
+| 功能                               | 请求uri | 方式   |
+| ---------------------------------- | ------- | ------ |
+| 查询所有员工                       | emps    | GET    |
+| 查询某个员工(到修改界面)           | emp/1   | GET    |
+| 来到添加页面                       | emp     | GET    |
+| 添加员工                           | emp     | POST   |
+| 来到修改页面(查出员工进行信息回显) | emp     | PUT    |
+| 删除员工                           | emp/1   | DELETE |
+|                                    |         |        |
+
+
+
+### 解决日期问题
+
+```yml
+spring:
+	jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+```
+
+​		
+
+### ErrorMvcAutoConfiguration 错误自动处理配置
+
+#### DefaultErrorAttributes
+
+#### BasicErrorController
+
+- 处理 `/error`请求
+
+  ```java
+  @RequestMapping("${server.error.path:${error.path:/error}}")
+  ```
+
+  - 请求头里会有<a>accept:text-html</a>或者<a>accept:其他</a>
+
+  ```java
+  @RequestMapping(produces = MediaType.TEXT_HTML_VALUE)
+  	public ModelAndView errorHtml(HttpServletRequest request, HttpServletResponse response) {
+  		HttpStatus status = getStatus(request);
+  		Map<String, Object> model = Collections
+  				.unmodifiableMap(getErrorAttributes(request, getErrorAttributeOptions(request, MediaType.TEXT_HTML)));
+  		response.setStatus(status.value());
+      //要去哪个错误页面
+  		ModelAndView modelAndView = resolveErrorView(request, response, status, model);
+  		return (modelAndView != null) ? modelAndView : new ModelAndView("error", model);
+  	}
+  
+  	@RequestMapping
+  	public ResponseEntity<Map<String, Object>> error(HttpServletRequest request) {
+  		HttpStatus status = getStatus(request);
+  		if (status == HttpStatus.NO_CONTENT) {
+  			return new ResponseEntity<>(status);
+  		}
+  		Map<String, Object> body = getErrorAttributes(request, getErrorAttributeOptions(request, MediaType.ALL));
+  		return new ResponseEntity<>(body, status);
+  	}
+  ```
+
+  - 解析页面 DefaultErrorViewResolver 解析
+
+  ```java
+  protected ModelAndView resolveErrorView(HttpServletRequest request, HttpServletResponse response, HttpStatus status,
+  			Map<String, Object> model) {
+  		for (ErrorViewResolver resolver : this.errorViewResolvers) {
+  			ModelAndView modelAndView = resolver.resolveErrorView(request, status, model);
+  			if (modelAndView != null) {
+  				return modelAndView;
+  			}
+  		}
+  		return null;
+  	}
+  //默认springboot可以去找到一个页面？error/404
+  private ModelAndView resolve(String viewName, Map<String, Object> model) {
+  		String errorViewName = "error/" + viewName;
+    //如果模版引擎可以解析这个页面就用模版
+  		TemplateAvailabilityProvider provider = this.templateAvailabilityProviders.getProvider(errorViewName,
+  				this.applicationContext);
+  		if (provider != null) {
+        //模版引擎指定的视图地址
+  			return new ModelAndView(errorViewName, model);
+  		}
+    //模版引擎不可用调用这个 就去静态文件夹下找
+  		return resolveResource(errorViewName, model);
+  	}
+  
+  private ModelAndView resolveResource(String viewName, Map<String, Object> model) {
+  		for (String location : this.resources.getStaticLocations()) {
+  			try {
+  				Resource resource = this.applicationContext.getResource(location);
+  				resource = resource.createRelative(viewName + ".html");
+  				if (resource.exists()) {
+  					return new ModelAndView(new HtmlResourceView(resource), model);
+  				}
+  			}
+  			catch (Exception ex) {
+  			}
+  		}
+  		return null;
+  	}
+  
+  ```
+
+  
+
+#### ErrorPageCustomizer
+
+- 系统出现错误，注册registerErrorPages，注册的错误页面规则
+
+#### DefaultErrorViewResolver
+
+步骤：
+
+​		一旦系统出现404等异常则ErrorPageCustomizer 定制异常
+
+1 ) . 有模版引擎的情况下：error/状态码 ，精确优先，然后再匹配，可以使用5xx.html 或者4xx.html
+
+
+
+### 配置嵌入式servlet容器
+
+Srpingboot使用的是嵌入式Servlet容器
+
+编写一个EmbeddedServletContainerCustomizer:嵌入式的Servlet容器的定制器；
+
+
+
+
+
 
 
 
