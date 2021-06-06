@@ -163,11 +163,19 @@ Docker Container : 独立的一个或者一组应用
 
 1. 安装docker
 
+   > Add config <a>"registry-mirrors": ["https://hsucowrp.mirror.aliyuncs.com","https://docker.mirrors.ustc.edu.cn”  ]</a>
+
 2. 找到镜像
    1. [docker search mysql ](https://hub.docker.com)
    2. docker pull mysql
    3. docker images 查看安装了哪些镜像
    4. docker rmi <IMAGE ID>
+   5. docker ps -a
+      docker start 14fd7ef73b99
+   6. \#执行进入容器命令
+      docker exec -it 30a29a905ebb /bin/bash
+   7. \#查看容器日志
+      docker logs --since 30m 14fd7ef73b99
 
 3. 运行镜像，生成容器
 
@@ -238,7 +246,7 @@ Docker Container : 独立的一个或者一组应用
 
 #### 10、 整合mybatis
 
-##### 10.1
+##### 10.1 Base Annotation
 
 - **@MapperSacn(value=“package”)**
 - @Mapper
@@ -317,7 +325,7 @@ Docker Container : 独立的一个或者一组应用
   -  org.springframework.boot.autoconfigure.aop.AopAutoConfiguration,\
   - org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration,
 
-##### 13.4 模式
+##### 13.4 Custom Moudle
 
 - 启动器只用来依赖导入empty.jar xxx-starter  <font color="red" >— spring-boot-starter</font>
 - 专门写一个自动配置模块 xxx-starter-autoconfiguration <font color="red" >— spring-boot-starter-moduleNme</font>
@@ -329,7 +337,7 @@ Docker Container : 独立的一个或者一组应用
 
 ### SpringBoot 高级
 
-#### _0、_ Springboot与缓存
+#### _0、_ Springboot&Cache
 
 ##### _0.1_ JSR-107
 
@@ -355,9 +363,186 @@ Docker Container : 独立的一个或者一组应用
 - **@CachePut**(cacheNames={"user"},key = "#result.userId”)`alter cache`
 - **@CacheEvict**(cacheNames={"user"},/*key = "#userId"*/allEntries = true,beforeInvocation = true)`del cache`
 
-##### 整合Redis
+##### _0.3_、[整合Redis缓存中间件](https://docs.spring.io/spring-data/redis/docs/2.5.1/reference/html/#redis:connectors)
+
+> install redis : <a>docker run -d -p 6379:6379 --name myredis redis</a>
+
+- **import starter**
+- **use RedisAutoConfiguration **
+  - *StringRedisTemplate*
+  - *RedisTemplate*
+  - [custom RedisTemplate](#CUST01)
+- **RedisCacheManager**  `efficient`
+  - [Config  RedisCacheManager](#CUST01)
+  - Autowired RedisCacheManager 可以直接注入使用
+  -  user.put("id",userId)
+- Create RedisCache
+  - @CacheConfig(cacheManager = "userCacheManager")
+  - @Cacheable(cacheNames={"user"},condition = "#id>0" ,key = "#id",unless="#result == null",cacheManager = "userCacheManager")
+  - @Primary 多个时候必须默认缓存处理器
+
+#### _1_、JMS&AMQP
+
+##### _1.1_提升异步通信，扩展解耦能力，流量削峰
+
+```sequence
+participant 用户请求
+participant ExchangeN
+participant 消息队列
+participant 信道N
+participant TCP
+participant 秒杀业务系统
+participant Consumer消费者
+用户请求->ExchangeN:给交换器
+ExchangeN->消息队列:绑定
+note left of 消息队列:exchange用于绑定消息队列
+秒杀业务系统->> TCP: 创建一条TCP
+TCP ->> 信道N:多路复用
+信道N->> 消息队列: 取回数据
+消息队列--> Consumer消费者:信息返回
+```
 
 
+
+##### _1.2_概念
+
+> <a>消息发送者将消息发送后，将由消息代理接管，消息代理保证消息传递到指定目的地</a>
+
+- 消息代理(message broker)
+
+- 目的地(distination)
+
+##### _1.4_ 消息队列主要形式
+
+- **_Queue_**:*point-to-point*
+- **_topic_**:*publish==/==subscribe*
+- **JMS**(*Java Message Service*):java消息服务
+  - 两种基础模型
+    - Peer-2-Peer
+    - Pub/Sub
+  - 多种消息类型
+    - TextMessage
+    - MapMessage
+    - BytesMessage
+    - StreamMessage
+    - ObjectMessage
+    - Message(只有消息头和属性)
+- **AMQP**(*Advanced Message Queuing Protocol*) : 高级消息队列协议，兼容JMS网络线级协议
+  - 两种基础模型
+    - direct exchange
+    - fanout exchange
+    - topic exchange
+    - headers exchange
+    - system exchange
+    - RabbitMQ
+  - 单一消息类型
+    - byte[] 当实际应用时，有复杂的消息，可以将消息序列化后发送
+
+##### _1.5_ spring支持
+
+- Spring-jms for jms
+- spring-rabbit for amqp
+- 需要ConnectionFactory的实现来连接消息代理
+- 提供JmsTemplate,RabbitTemplate来发送消息
+- @JmsListener(JMS)、@RabbitListener(AMQP)注解方法 监听消息代理发布消息
+- @EnableJMS，@EnableRabbit开启支持
+
+##### _1.6_ spring boot atuoconfiguration
+
+- **JmsAutoConfiguration**
+- **RabbitAutoConfiguration**
+
+### 2、RabbitMQ for Spring
+
+##### 2.3.1 direct(default) for==p-2-p== 
+
+- routeing key 和 binding key一致
+
+##### 2.3.2 fanout ==pub/sub==
+
+- 不管消息routing key是什么 每个发一份 
+
+##### 2.3.3 topic ==pub/sub==
+
+- USA.# 允许0活着多个，*匹配一个
+- USA.*weather
+
+##### 2.3.4 headers ==pub/sub==
+
+##### 2.3.5 发布模型
+
+- Publish
+
+- Message
+
+- Broker[^消息队列服务器实体]
+     - Virtual Host[^虚拟主机]
+          -  Exchange
+          - Binding[^bind eq]
+          - Queue[^消息队列]
+  -  Connection[^TCP链接]
+    -  Channel[^信道]
+
+- Consumer[^消息消费者]
+
+#### 2.2 Docker for RabbitMq
+
+> docker run -d -p 5672:5672 -p 15672:15672 --name myrabbitmq de56f4cfbb98
+
+- [访问管理页面](http://127.0.0.1:15672/)
+
+- @See [RabbitAutoConfiguration]()
+  - 自动配置链接工厂 **CachingConnectionFactory**
+  - **RabbitProperties**：配置文件
+  - **RabbitTemplate**:给Rabbit发送和接收消息
+    - 默认序列化后发送**rabbitTemplate.convertAndSend("exchange.direct","reno","hello world 你好")**
+  - **amqpAdmin**:系统管理功能组件
+
+
+
+### 3、[elasticSearch](http://全文检索.com)
+
+> docker run -e "ES_JAVA_OPTS=-Xms512m -Xmx=512m" -d -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" --name myelasticsearch 6adeafaff184
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-----
 
 ## CODE
 
@@ -799,7 +984,58 @@ public ConfigurableApplicationContext run(String... args) {
   return context;}
 ```
 
-#### ce
+<a id="CUST01">MyRedisConfiguration</a>
+
+```java
+package com.study.cache.config;
+
+import com.study.cache.pojo.UserEntity;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnSingleCandidate;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+import org.springframework.data.redis.cache.RedisCacheConfiguration;
+import org.springframework.data.redis.cache.RedisCacheManager;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
+import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
+import org.springframework.data.redis.serializer.RedisSerializationContext;
+import org.springframework.data.redis.serializer.RedisSerializer;
+
+import java.time.Duration;
+
+/**
+ * @author zbsilent
+ * @date 2021年06月05日 11:04 上午
+ */
+@Configuration
+public class MyRedisConfig {
+
+//    @Bean
+//    public RedisTemplate<Object, UserEntity> userRedisTemplate(RedisConnectionFactory redisConnectionFactory) {
+//        RedisTemplate<Object, UserEntity> template = new RedisTemplate<Object, UserEntity>();
+//        template.setDefaultSerializer(new Jackson2JsonRedisSerializer<UserEntity>(UserEntity.class));
+//        template.setConnectionFactory(redisConnectionFactory);
+//        return template;
+//    }
+
+    @Bean
+    @Primary
+    public RedisCacheManager userCacheManager(RedisConnectionFactory connectionFactory) {
+        RedisCacheConfiguration redisCacheConfiguration = RedisCacheConfiguration.defaultCacheConfig().
+                entryTtl(Duration.ofDays(1)).disableCachingNullValues().serializeValuesWith(RedisSerializationContext
+                        .SerializationPair.fromSerializer(new GenericJackson2JsonRedisSerializer()));
+        return RedisCacheManager.builder(connectionFactory).cacheDefaults(redisCacheConfiguration).build();
+    }
+}
+
+```
+
+
+
+#### END
 
 
 
@@ -831,7 +1067,7 @@ public ConfigurableApplicationContext run(String... args) {
 
 
 
-## Reference
+## _Reference_
 
 [^1]:`spring-boot-starter`为开头且包下的其他组件  例如： `spring-boot-starter` `spring-boot-starter-activemq `,`spring-boot-starter-amqp`,` spring-boot-starter-aop`
 [^2]:该注解标注的类，SpringBoot则运行该类的main()启动springboot应用
@@ -841,6 +1077,8 @@ public ConfigurableApplicationContext run(String... args) {
 [^运维阶段使用]: 项目打包后可以使用命令行参数的形式，在启动项目的时候指定配置文件的新位置 ，_` java -jar  xxxx.jar --spring.config.loaction=/user/prop.properties` 运行文件_
 
 [^Docker]:开运的应用容器引擎，启动非常快，基于GO语言，Apache2.0开源协议
+
+[^虚拟主机]:表示一批交换器、消息队列和相关对象
 
 
 
@@ -873,3 +1111,5 @@ public ConfigurableApplicationContext run(String... args) {
 ​																																														_study by zbsilent@gmail.com_
 
  
+
+[^信道]:

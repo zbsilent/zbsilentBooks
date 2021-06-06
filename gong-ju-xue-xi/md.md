@@ -278,12 +278,23 @@ _Reference:_ [_Action System in IntelliJ SDK Docs_](https://www.jetbrains.org/in
 
 
 
-```
+```tex
 - 代表实线 ， 主动发送消息，比如 request请求
 > 代表实心箭头 ， 同步消息，比如 AJAX 的同步请求
 -- 代表虚线，表示返回消息，spring Controller return
 >> 代表非实心箭头 ，异步消息，比如AJAX请求
 ```
+
+```sequence
+participant 用户请求
+participant 消息队列
+participant 秒杀业务系统
+
+用户请求->消息队列:写入消息队列
+秒杀业务系统->>消息队列:根据规则读取秒杀请求
+```
+
+
 
 ```sequence
 Title: md时序图练习
@@ -310,13 +321,76 @@ Title: md时序图练习
 
 
 
+```flow
+st=>start: Start
+op=>operation: Operation
+cond=>condition: Condition?
+e=>end 
+st->op->cond
+cond(yes)->e
+cond(no)->op
+```
+
+```mermaid
+%% Example with selection of syntaxes
+gantt
+		title 我的甘特图
+		dateFormat YYYY-MM-DD
+		
+		section Section A
+				任务A-1   :al,2014-01-01,30d
+				任务A-2  	:al,2014-02-01,10d
+		section Section A
+				任务A-1   :al,2014-01-01,30d
+				任务A-2  	:al,2014-02-01,10d
+
+				
+```
+
+```mermaid
+pie title 我的饼图
+	"dog":345
+	"cat":12
+	"mouse":234
+```
+
+```mermaid
+journey
+		title my working day
+		section Go to work
+				make tea: 4:ll,6:88
+				make tea1: 3:ll,x,xxxx
+				make tea2: 1:ll,xx
+		section Go to Home
+				make tea: 5:ll
+				sit down: 5:ll,77
+				 
+		
+```
+
+
+
+```mermaid
+erDiagram
+		CUSTOME ||--o{ ORDER : places
+		ORDER ||-- |{LINE-TIME :contains
+		CUSTOME }|..|{DELIVERY-ADDRESS : uses
+
+```
+
+
+
+
+
+
+
 ##### 时序图画法
 
 ```mermaid
 sequenceDiagram
-Alice->John: Hello John, how are you?
-
-  Note over Alice,John: A typical interaction
+用户请求-> 消息队列: 写入消息队列
+秒杀业务系统 -> 消息队列:根据消息读取秒杀系统
+  # Note over Alice,John: A typical interaction
 ```
 
 ----
