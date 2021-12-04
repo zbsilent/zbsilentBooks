@@ -61,3 +61,8 @@ conf/tomcat-users.xml
  https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V14.md
 ```
 
+
+
+
+
+sudo lsof -nP | grep LISTEN | grep 8080

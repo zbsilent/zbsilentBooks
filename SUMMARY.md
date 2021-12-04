@@ -23,6 +23,7 @@
   * [Router](zhuan-ye-xue-xi/router.md)
   * [Redux](zhuan-ye-xue-xi/redux.md)
   * [ReactHooks](zhuan-ye-xue-xi/React扩展.md)
+  * [测试](zhuan-ye-xue-xi/Test-new.md)
 * [工作文件](gong-zuo-wen-jian/README.md)
   * [嘉宝客开服务工作流程](gong-zuo-wen-jian/jia-bao-kai-fa-ti-wen-liu-cheng.md)
 * [其他文案](qi-ta-wen-an/README.md)
